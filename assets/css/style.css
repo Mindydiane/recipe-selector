@@ -1,0 +1,11 @@
+:root {
+    --prim-color: #84c9ee;
+    --second-color: #183849;
+    --third-color: #74240c;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
