@@ -2,10 +2,58 @@
     --prim-color: #84c9ee;
     --second-color: #183849;
     --third-color: #74240c;
+    --forth-color: white;
 }
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+header {
+    background-color: var(--prim-color);
+}
+
+header h1 {
+    text-align: center;
+}
+
+.menu {
+    background-color: var(--second-color);
+    display: none;
+    position: fixed;
+}
+
+.menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 15px;
+}
+
+.menu ul li {
+    list-style: none;
+    line-height: 40px;
+}
+
+.menu ul li a{
+    height: 100%;
+    padding: 0 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--forth-color);
+}
+
+
+.search-bar {
+    width: 100%;
+    padding: 40px;
+    white-space: pre-wrap;
+    text-align: center;
+}
+
+.search-text {
+    width: 1000px;
+    height: 50px;
+    font-size: 40px;
 }
