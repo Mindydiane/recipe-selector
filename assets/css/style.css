@@ -85,3 +85,16 @@ header h1 {
     height: 50px;
     font-size: 40px;
 }
+
+.search-content {
+    text-align: center;
+}
+
+/* .content-container {
+    display: flex;
+    flex: wrap;
+    
+} */
+
+
+
