@@ -44,47 +44,37 @@ var getRecipeInfo = function (data, searchTerm) {
     SearchContentEl.textContent = "";
 
     var contentContainerEl = document.createElement("div");
-    contentContainerEl.addClass = "content-container";
+    contentContainerEl.className = "content-container";
 
-    for (var i = 0; i < data.results.length; i++) {
-        var recipeId = data.results[i].id;
+    for (var i = 0; i < data.hits.length; i++) {
+        var anchorEl = document.createElement("a");
+        anchorEl.className = "redirect";
+        anchorEl.setAttribute("href", data.hits[i].recipe.shareAs);
 
-        var apiUrlId = "https://api.spoonacular.com/recipes/" + recipeId + "/information?includeNutrition=false&apiKey=94d4edeeee9b4cbe9f524429cf3d4d96";
+        var imgEl = document.createElement("img");
+        imgEl.className = "recipe-img";
+        imgEl.setAttribute("src", data.hits[i].recipe.image);
+        anchorEl.appendChild(imgEl);
 
-        fetch(apiUrlId)
-            .then(function (response) {
-                if (response.ok) {
-                    response.json().then(function (data) {
-                        console.log("nameid", data);
+        var nameEl = document.createElement("h3");
+        nameEl.className = "recipe-name";
+        nameEl.textContent = data.hits[i].recipe.label;
+        anchorEl.appendChild(nameEl);
 
-                        var anchorEl = document.createElement("a");
-                        anchorEl.addClass = "redirect";
-                        anchorEl.setAttribute("href", data.sourceUrl);
-
-                        var imgEl = document.createElement("img");
-                        imgEl.addClass = "recipe-img";
-                        imgEl.setAttribute("src", data.image);
-                        anchorEl.appendChild(imgEl);
-
-                        var nameEl = document.createElement("h3");
-                        nameEl.addClass = "recipe-name";
-                        nameEl.textContent = data.title;
-                        anchorEl.appendChild(nameEl);
-
-                        contentContainerEl.appendChild(anchorEl);
-                    })
-                }
-            })
-
-
+        contentContainerEl.appendChild(anchorEl);
     }
+
+
+
+
+
     SearchContentEl.appendChild(contentContainerEl);
 }
 
 //fetch data from sever
 var getSearch = function (complex) {
 
-    var apiUrl = 'https://api.spoonacular.com/recipes/complexSearch?query=' + complex + '&apiKey=94d4edeeee9b4cbe9f524429cf3d4d96';
+    var apiUrl = 'https://api.edamam.com/api/recipes/v2?app_id=4a0156d2&app_key=a8f96e8c7749c98cdb001aadb4c352cd&type=public&q=' + complex;
 
     //make request to the url
     fetch(apiUrl)
@@ -93,7 +83,7 @@ var getSearch = function (complex) {
                 response.json().then(function (data) {
                     getRecipeInfo(data, complex);
                     var shouldSearch = true;
-                    if (data.results.length === 0) {
+                    if (data.hits.length === 0) {
                         shouldSearch = false;
                         alert("not valid");
                     }
@@ -109,4 +99,4 @@ var getSearch = function (complex) {
         })
 }
 
-// getSearch("Pasta");
+getSearch("pasta");

@@ -88,13 +88,31 @@ header h1 {
 
 .search-content {
     text-align: center;
+
+    width: 100%;
 }
 
-/* .content-container {
+.content-container {
     display: flex;
-    flex: wrap;
+    flex-wrap: wrap;
+
+    width: 100%;
+}
+
+.redirect {
+    text-decoration: none;
+    color:var(--second-color);
+    margin: 5px;
+}
+
+.recipe-img {
+    margin: 5px;
+}
+
+.recipe-name {
+    margin: 5px;
     
-} */
+}
 
 
 
