@@ -3,7 +3,6 @@ var searchBarEl = document.querySelector(".search-bar");
 var searchTextEl = document.querySelector(".search-text");
 var SearchContentEl = document.querySelector(".search-content");
 
-// searchBarEl.addEventListener("submit", )
 
 var searchSubmit = function (event) {
     event.preventDefault();
@@ -18,7 +17,11 @@ var searchSubmit = function (event) {
         searchTextEl.value = "";
     }
     else {
-        alert("Please enter a valid item");
+        SearchContentEl.textContent = "";
+        var notValid = document.createElement("h2");
+        notValid.className = "not-valid";
+        notValid.textContent = "Please Enter a Valid Item";
+        SearchContentEl.appendChild(notValid);
         return;
     }
 }
@@ -63,18 +66,13 @@ var getRecipeInfo = function (data, searchTerm) {
 
         contentContainerEl.appendChild(anchorEl);
     }
-
-
-
-
-
     SearchContentEl.appendChild(contentContainerEl);
 }
 
 //fetch data from sever
 var getSearch = function (complex) {
 
-    var apiUrl = 'https://api.edamam.com/api/recipes/v2?app_id=4a0156d2&app_key=a8f96e8c7749c98cdb001aadb4c352cd&type=public&q=' + complex;
+    var apiUrl = 'https://api.edamam.com/api/recipes/v2?app_id=4a0156d2&app_key=' + 'a8f96e8c7749c98cdb001aadb4c352cd' + '&type=public&q=' + complex;
 
     //make request to the url
     fetch(apiUrl)
@@ -85,18 +83,17 @@ var getSearch = function (complex) {
                     var shouldSearch = true;
                     if (data.hits.length === 0) {
                         shouldSearch = false;
-                        alert("not valid");
+                        var notValid = document.createElement("h2");
+                        notValid.className = "not-valid";
+                        notValid.textContent = "Not a Valid Entry";
+                        SearchContentEl.appendChild(notValid);
                     }
-                    if (shouldSearch) {
-                        console.log("first data", data);
-                    }
+                    // if (shouldSearch) {
+                    //     console.log("first data", data);
+                    // }
                 })
             }
-            else {
-                alert("enter name");
-                return;
-            }
+
+
         })
 }
-
-getSearch("pasta");
