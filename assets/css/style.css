@@ -87,10 +87,6 @@ header h1 {
     height: 50px;
     font-size: 40px;
 }
-
-
-
-/* recipe container section */
 section {
     display: flex;
     justify-content: space-around;
