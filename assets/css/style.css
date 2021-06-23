@@ -88,7 +88,8 @@ header h1 {
     font-size: 40px;
 }
 
-.filter-form {
+
+/* .filter-form {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 50px;
@@ -96,7 +97,7 @@ header h1 {
 
 .filter, .filter2 {
     margin: 5px 40px;
-}
+} */
 /* recipe container section */
 section {
     display: flex;
