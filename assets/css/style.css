@@ -73,7 +73,7 @@ header h1 {
     color: var(--forth-color);
 }
 
-
+/* Search Area Style */
 .search-bar {
     width: 100%;
     padding: 40px;
@@ -86,6 +86,15 @@ header h1 {
     height: 50px;
     font-size: 40px;
 }
+
+.search-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-self: center; 
+}
+
+
 
 /* recipe container section */
 section {
