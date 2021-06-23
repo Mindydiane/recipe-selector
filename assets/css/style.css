@@ -76,12 +76,13 @@ header h1 {
 /* Search Area Style */
 .search-bar {
     width: 100%;
-    padding: 40px;
+    padding: 40px 40px 10px 40px;
     white-space: pre-wrap;
     text-align: center;  
 }
 
 .search-text {
+    text-align: center;
     width: 1000px;
     height: 50px;
     font-size: 40px;
@@ -92,7 +93,6 @@ main {
     justify-content: space-around;
 }
 
-/* background image style */
 .background-img {
     background-image: url(../images/garden-theme.jpg);
     background-size: cover;
@@ -100,7 +100,6 @@ main {
     z-index: 9999;
 }
 
-/* random recipe container section */
 section {
     display: flex;
     justify-content: space-around;
@@ -123,3 +122,12 @@ section {
     align-items: left;
 }
 
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.filter, .filter2 {
+    margin: 5px 40px;
+}
