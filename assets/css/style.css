@@ -73,12 +73,12 @@ header h1 {
     color: var(--forth-color);
 }
 
-
+/* Search Area Style */
 .search-bar {
     width: 100%;
     padding: 40px 40px 10px 40px;
     white-space: pre-wrap;
-    text-align: center;
+    text-align: center;  
 }
 
 .search-text {
@@ -87,9 +87,23 @@ header h1 {
     height: 50px;
     font-size: 40px;
 }
+
+main {
+    display: flex;
+    justify-content: space-around;
+}
+
+.background-img {
+    background-image: url(../images/garden-theme.jpg);
+    background-size: cover;
+    background-position: 80%;
+    z-index: 9999;
+}
+
 section {
     display: flex;
     justify-content: space-around;
+    
 }
 
 .container {
@@ -107,7 +121,6 @@ section {
     padding: 5px 100px 5px 10px;
     align-items: left;
 }
-
 
 .filter-form {
     display: flex;
