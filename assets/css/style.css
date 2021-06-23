@@ -87,25 +87,30 @@ header h1 {
     font-size: 40px;
 }
 
-/* recipe container section */
-section {
-    display: flex;
-    justify-content: space-around;
+.search-content {
+    text-align: center;
+
+    width: 100%;
 }
 
-.container {
-    width: 250px;
-    height: 250px;
-    padding: 20px 0 20px 0;
-    border: 1px solid var(--second-color);
-    box-sizing: border-box;
+.content-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 100%;
+}
+
+.redirect {
+    text-decoration: none;
+    color:var(--second-color);
+    margin: 5px;
+}
+
+.recipe-img {
+    margin: 5px;
 }
 
 .recipe-name {
-    background-color: var(--second-color);
-    color: white;
-    width: 100%;
-    padding: 5px 100px 5px 10px;
-    align-items: left;
+    margin: 5px;
+    
 }
-
