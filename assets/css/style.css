@@ -116,16 +116,15 @@ section {
 
 .recipe-name {
     background-color: var(--second-color);
-    color: white;
+    color: var(--forth-color);
     width: 100%;
-    padding: 5px 100px 5px 10px;
-    align-items: left;
 }
 
 .filter-form {
     display: flex;
     flex-wrap: wrap;
     margin-bottom: 50px;
+    color: var(--forth-color);
 }
 
 .filter, .filter2 {
