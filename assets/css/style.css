@@ -89,15 +89,7 @@ header h1 {
 }
 
 
-/* .filter-form {
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 50px;
-}
 
-.filter, .filter2 {
-    margin: 5px 40px;
-} */
 /* recipe container section */
 section {
     display: flex;
@@ -120,3 +112,13 @@ section {
     align-items: left;
 }
 
+
+.filter-form {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.filter, .filter2 {
+    margin: 5px 40px;
+}
