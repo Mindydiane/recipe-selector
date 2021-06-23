@@ -93,12 +93,12 @@ section {
     justify-content: space-around;
 }
 
-.container {
-    width: 250px;
-    height: 250px;
-    padding: 20px 0 20px 0;
-    border: 1px solid var(--second-color);
-    box-sizing: border-box;
+.random {
+    margin: auto;
+}
+
+.title {
+    margin: auto;
 }
 
 .recipe-name {

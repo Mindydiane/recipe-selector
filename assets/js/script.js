@@ -97,3 +97,19 @@ var getSearch = function (complex) {
 
         })
 } 
+
+var apiUrlTwo = "https://api.spoonacular.com/recipes/random?number=1&tags=dinner&apiKey=94d4edeeee9b4cbe9f524429cf3d4d96"
+
+fetch(apiUrlTwo)
+.then(function (response){
+	if (response.ok){
+        response.json().then(function(data){
+            randomTitle = data.recipes[0].title
+            randomImage = data.recipes[0].image
+            
+            $(".random").html(`<h1 class='title'>Random Recipe!</h1><h2>' ${randomTitle} '</h2> <img src=''${randomImage}'></img>`)
+
+
+        })
+    }
+})
