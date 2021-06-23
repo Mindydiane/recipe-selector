@@ -74,8 +74,28 @@ var getSearch = function (complex) {
 
     var apiUrl = 'https://api.edamam.com/api/recipes/v2?app_id=4a0156d2&app_key=' + 'a8f96e8c7749c98cdb001aadb4c352cd' + '&type=public&q=' + complex;
 
+    var healthEl = document.querySelector("select[class='health']").value;
+    var cuisineEl = document.querySelector("select[class='cuisine']").value;
+
+    if (healthEl && cuisineEl) {
+        var newApiUrl = apiUrl + '&health=' + healthEl + '&cuisineType=' + cuisineEl;
+        console.log("apiboth", newApiUrl);
+    }
+    else if (healthEl && !cuisineEl) {
+        var newApiUrl = apiUrl + '&health=' + healthEl;
+        console.log("apihealth", newApiUrl);
+    }
+    else if (!healthEl && cuisineEl) {
+        var newApiUrl = apiUrl + '&cuisineType=' + cuisineEl;
+        console.log("apicuisine", newApiUrl);
+    }
+    else {
+        var newApiUrl = apiUrl;
+        console.log("api", newApiUrl);
+    }
+
     //make request to the url
-    fetch(apiUrl)
+    fetch(newApiUrl)
         .then(function (response) {
             if (response.ok) {
                 response.json().then(function (data) {
@@ -96,4 +116,4 @@ var getSearch = function (complex) {
 
 
         })
-} 
+}
