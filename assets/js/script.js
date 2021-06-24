@@ -65,7 +65,6 @@ var getRecipeInfo = function (data, searchTerm) {
 
 //fetch data from sever
 var getSearch = function (complex) {
-<<<<<<< HEAD
   var apiUrl =
     "https://api.edamam.com/api/recipes/v2?app_id=4a0156d2&app_key=" +
     "a8f96e8c7749c98cdb001aadb4c352cd" +
@@ -109,7 +108,6 @@ fetch(apiUrlTwo).then(function (response) {
     });
   }
 });
-=======
 
     var apiUrl = 'https://api.edamam.com/api/recipes/v2?app_id=4a0156d2&app_key=' + 'a8f96e8c7749c98cdb001aadb4c352cd' + '&type=public&q=' + complex;
 
@@ -155,5 +153,20 @@ fetch(apiUrlTwo).then(function (response) {
 
 
         })
-}
->>>>>>> 8b5e57ca17faa2a5b052c19fb8368363a14c232a
+
+var apiUrlTwo =
+  "https://api.spoonacular.com/recipes/random?number=1&tags=dinner&apiKey=94d4edeeee9b4cbe9f524429cf3d4d96";
+
+fetch(apiUrlTwo).then(function (response) {
+  if (response.ok) {
+    response.json().then(function (data) {
+      randomTitle = data.recipes[0].title;
+      randomImage = data.recipes[0].image;
+      randomLink = data.recipes[0].sourceUrl;
+
+      $(".random").html(
+        `<h1 class='title'>Random Recipe!</h1><h3>${randomTitle}</h3><a href='${randomLink}' target='_blank'><img src='${randomImage}'></img>`
+      );
+    });
+  }
+});
