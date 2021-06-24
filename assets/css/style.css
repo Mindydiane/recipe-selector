@@ -58,32 +58,19 @@ section {
     
 }
 
-<<<<<<< HEAD
+/* Random recipe style section */
 .random {
     margin: auto;
+    color: var(--forth-color);
 }
 
 .title {
     margin: auto;
-=======
-.container {
-    width: 250px;
-    height: 250px;
-    padding: 20px 0 20px 0;
-    border: 1px solid var(--prim-color);
-    box-sizing: border-box;
->>>>>>> 8b5e57ca17faa2a5b052c19fb8368363a14c232a
-}
-
-.recipe-name {
-    background-color: var(--second-color);
-    color: var(--forth-color);
-    width: 100%;
 }
 
 .filter-form {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     margin-bottom: 50px;
     color: var(--forth-color);
 }
