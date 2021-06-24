@@ -65,6 +65,7 @@ var getRecipeInfo = function (data, searchTerm) {
 
 //fetch data from sever
 var getSearch = function (complex) {
+<<<<<<< HEAD
   var apiUrl =
     "https://api.edamam.com/api/recipes/v2?app_id=4a0156d2&app_key=" +
     "a8f96e8c7749c98cdb001aadb4c352cd" +
@@ -108,3 +109,51 @@ fetch(apiUrlTwo).then(function (response) {
     });
   }
 });
+=======
+
+    var apiUrl = 'https://api.edamam.com/api/recipes/v2?app_id=4a0156d2&app_key=' + 'a8f96e8c7749c98cdb001aadb4c352cd' + '&type=public&q=' + complex;
+
+    var healthEl = document.querySelector("select[class='health']").value;
+    var cuisineEl = document.querySelector("select[class='cuisine']").value;
+
+    if (healthEl && cuisineEl) {
+        var newApiUrl = apiUrl + '&health=' + healthEl + '&cuisineType=' + cuisineEl;
+        console.log("apiboth", newApiUrl);
+    }
+    else if (healthEl && !cuisineEl) {
+        var newApiUrl = apiUrl + '&health=' + healthEl;
+        console.log("apihealth", newApiUrl);
+    }
+    else if (!healthEl && cuisineEl) {
+        var newApiUrl = apiUrl + '&cuisineType=' + cuisineEl;
+        console.log("apicuisine", newApiUrl);
+    }
+    else {
+        var newApiUrl = apiUrl;
+        console.log("api", newApiUrl);
+    }
+
+    //make request to the url
+    fetch(newApiUrl)
+        .then(function (response) {
+            if (response.ok) {
+                response.json().then(function (data) {
+                    getRecipeInfo(data, complex);
+                    var shouldSearch = true;
+                    if (data.hits.length === 0) {
+                        shouldSearch = false;
+                        var notValid = document.createElement("h2");
+                        notValid.className = "not-valid";
+                        notValid.textContent = "Not a Valid Entry";
+                        SearchContentEl.appendChild(notValid);
+                    }
+                    // if (shouldSearch) {
+                    //     console.log("first data", data);
+                    // }
+                })
+            }
+
+
+        })
+}
+>>>>>>> 8b5e57ca17faa2a5b052c19fb8368363a14c232a
