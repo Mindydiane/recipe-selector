@@ -24,7 +24,6 @@ header h1 {
 
 /* Search Area Style */
 .search-bar {
-    width: 100%;
     padding: 40px 40px 10px 40px;
     white-space: pre-wrap;
     text-align: center; 
