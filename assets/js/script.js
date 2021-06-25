@@ -10,7 +10,7 @@ var searchSubmit = function (event) {
     var complex = searchTextEl.value.trim();
 
     console.log("complex", complex);
-
+    
     if (complex) {
         getSearch(complex);
         searchTextEl.value = "";
@@ -59,6 +59,7 @@ var getRecipeInfo = function (data, searchTerm) {
     var nameEl = document.createElement("h3");
     nameEl.className = "recipe-name";
     nameEl.textContent = data.hits[i].recipe.label;
+    nameEl.setAttribute("style", "color: white;")
     anchorEl.appendChild(nameEl);
 
     contentContainerEl.appendChild(anchorEl);
@@ -171,6 +172,8 @@ fetch(apiUrlTwo).then(function (response) {
         `<h1 class='title'>Random Recipe!</h1><h3>${randomTitle}</h3><a href='${randomLink}' target='_blank'><img src='${randomImage}'></img>`
       );
     });
+  }
+});
 
 var getRecipeInfo = function (data, searchTerm) {
     console.log("displaydata", data);
