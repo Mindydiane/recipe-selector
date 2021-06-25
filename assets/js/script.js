@@ -63,110 +63,61 @@ var getRecipeInfo = function (data, searchTerm) {
   SearchContentEl.appendChild(contentContainerEl);
 };
 
-//fetch data from sever
+var apiUrlTwo =
+  "https://api.spoonacular.com/recipes/random?number=1&tags=dinner&apiKey=94d4edeeee9b4cbe9f524429cf3d4d96";
+
+fetch(apiUrlTwo).then(function (response) {
+  if (response.ok) {
+    response.json().then(function (data) {
+      randomTitle = data.recipes[0].title;
+      randomImage = data.recipes[0].image;
+      randomLink = data.recipes[0].sourceUrl;
+
+      $(".random").html(
+        `<h1 class='title'>Random Recipe!</h1><h3>${randomTitle}</h3><a href='${randomLink}' target='_blank'><img src='${randomImage}'></img>`
+      );
+    });
+  }
+});
+
 var getSearch = function (complex) {
-  var apiUrl =
-    "https://api.edamam.com/api/recipes/v2?app_id=4a0156d2&app_key=" +
-    "a8f96e8c7749c98cdb001aadb4c352cd" +
-    "&type=public&q=" +
-    complex;
+  var apiUrl = 'https://api.edamam.com/api/recipes/v2?app_id=4a0156d2&app_key=' + 'a8f96e8c7749c98cdb001aadb4c352cd' + '&type=public&q=' + complex;
+
+  var healthEl = document.querySelector("select[class='health']").value;
+  var cuisineEl = document.querySelector("select[class='cuisine']").value;
+
+  if (healthEl && cuisineEl) {
+    var newApiUrl = apiUrl + '&health=' + healthEl + '&cuisineType=' + cuisineEl;
+    console.log("apiboth", newApiUrl);
+  }
+  else if (healthEl && !cuisineEl) {
+    var newApiUrl = apiUrl + '&health=' + healthEl;
+    console.log("apihealth", newApiUrl);
+  }
+  else if (!healthEl && cuisineEl) {
+    var newApiUrl = apiUrl + '&cuisineType=' + cuisineEl;
+    console.log("apicuisine", newApiUrl);
+  }
+  else {
+    var newApiUrl = apiUrl;
+    console.log("api", newApiUrl);
+  }
 
   //make request to the url
-  fetch(apiUrl).then(function (response) {
-    if (response.ok) {
-      response.json().then(function (data) {
-        getRecipeInfo(data, complex);
-        var shouldSearch = true;
-        if (data.hits.length === 0) {
-          shouldSearch = false;
-          var notValid = document.createElement("h2");
-          notValid.className = "not-valid";
-          notValid.textContent = "Not a Valid Entry";
-          SearchContentEl.appendChild(notValid);
-        }
-        // if (shouldSearch) {
-        //     console.log("first data", data);
-        // }
-      });
-    }
-  });
-};
-
-var apiUrlTwo =
-  "https://api.spoonacular.com/recipes/random?number=1&tags=dinner&apiKey=94d4edeeee9b4cbe9f524429cf3d4d96";
-
-fetch(apiUrlTwo).then(function (response) {
-  if (response.ok) {
-    response.json().then(function (data) {
-      randomTitle = data.recipes[0].title;
-      randomImage = data.recipes[0].image;
-      randomLink = data.recipes[0].sourceUrl;
-
-      $(".random").html(
-        `<h1 class='title'>Random Recipe!</h1><h3>${randomTitle}</h3><a href='${randomLink}' target='_blank'><img src='${randomImage}'></img>`
-      );
-    });
-  }
-});
-
-    var apiUrl = 'https://api.edamam.com/api/recipes/v2?app_id=4a0156d2&app_key=' + 'a8f96e8c7749c98cdb001aadb4c352cd' + '&type=public&q=' + complex;
-
-    var healthEl = document.querySelector("select[class='health']").value;
-    var cuisineEl = document.querySelector("select[class='cuisine']").value;
-
-    if (healthEl && cuisineEl) {
-        var newApiUrl = apiUrl + '&health=' + healthEl + '&cuisineType=' + cuisineEl;
-        console.log("apiboth", newApiUrl);
-    }
-    else if (healthEl && !cuisineEl) {
-        var newApiUrl = apiUrl + '&health=' + healthEl;
-        console.log("apihealth", newApiUrl);
-    }
-    else if (!healthEl && cuisineEl) {
-        var newApiUrl = apiUrl + '&cuisineType=' + cuisineEl;
-        console.log("apicuisine", newApiUrl);
-    }
-    else {
-        var newApiUrl = apiUrl;
-        console.log("api", newApiUrl);
-    }
-
-    //make request to the url
-    fetch(newApiUrl)
-        .then(function (response) {
-            if (response.ok) {
-                response.json().then(function (data) {
-                    getRecipeInfo(data, complex);
-                    var shouldSearch = true;
-                    if (data.hits.length === 0) {
-                        shouldSearch = false;
-                        var notValid = document.createElement("h2");
-                        notValid.className = "not-valid";
-                        notValid.textContent = "Not a Valid Entry";
-                        SearchContentEl.appendChild(notValid);
-                    }
-                    // if (shouldSearch) {
-                    //     console.log("first data", data);
-                    // }
-                })
-            }
-
-
+  fetch(newApiUrl)
+    .then(function (response) {
+      if (response.ok) {
+        response.json().then(function (data) {
+          getRecipeInfo(data, complex);
+          var shouldSearch = true;
+          if (data.hits.length === 0) {
+            shouldSearch = false;
+            var notValid = document.createElement("h2");
+            notValid.className = "not-valid";
+            notValid.textContent = "Not a Valid Entry";
+            SearchContentEl.appendChild(notValid);
+          }
         })
-
-var apiUrlTwo =
-  "https://api.spoonacular.com/recipes/random?number=1&tags=dinner&apiKey=94d4edeeee9b4cbe9f524429cf3d4d96";
-
-fetch(apiUrlTwo).then(function (response) {
-  if (response.ok) {
-    response.json().then(function (data) {
-      randomTitle = data.recipes[0].title;
-      randomImage = data.recipes[0].image;
-      randomLink = data.recipes[0].sourceUrl;
-
-      $(".random").html(
-        `<h1 class='title'>Random Recipe!</h1><h3>${randomTitle}</h3><a href='${randomLink}' target='_blank'><img src='${randomImage}'></img>`
-      );
-    });
-  }
-});
+      }
+    })
+}
