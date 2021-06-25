@@ -2,13 +2,12 @@ var searchBarEl = document.querySelector(".search-bar");
 var searchTextEl = document.querySelector(".search-text");
 var SearchContentEl = document.querySelector(".search-content");
 
+//search submit function
 var searchSubmit = function (event) {
   event.preventDefault();
 
   //get value from input
   var complex = searchTextEl.value.trim();
-
-  console.log("complex", complex);
 
   if (complex) {
     getSearch(complex);
@@ -23,19 +22,12 @@ var searchSubmit = function (event) {
   }
 };
 
+//search bar submit event function
 $(document).ready(function () {
   $(".search-bar").submit(searchSubmit);
 });
 
-$(document).ready(function () {
-  $(".toggle").click(function () {
-    $(".menu").toggle();
-  });
-});
-
 var getRecipeInfo = function (data, searchTerm) {
-  console.log("displaydata", data);
-  console.log("searchTerm", searchTerm);
 
   //clear old content
   SearchContentEl.textContent = "";
@@ -43,6 +35,7 @@ var getRecipeInfo = function (data, searchTerm) {
   var contentContainerEl = document.createElement("div");
   contentContainerEl.className = "content-container";
 
+  //iterate data to create search result section
   for (var i = 0; i < data.hits.length; i++) {
     var anchorEl = document.createElement("a");
     anchorEl.className = "redirect";
@@ -63,6 +56,7 @@ var getRecipeInfo = function (data, searchTerm) {
   SearchContentEl.appendChild(contentContainerEl);
 };
 
+//creating random recipe to display when web page load
 var apiUrlTwo =
   "https://api.spoonacular.com/recipes/random?number=1&tags=dinner&apiKey=94d4edeeee9b4cbe9f524429cf3d4d96";
 
@@ -80,12 +74,14 @@ fetch(apiUrlTwo).then(function (response) {
   }
 });
 
+//fetching data from edamam and apply filter condition
 var getSearch = function (complex) {
   var apiUrl = 'https://api.edamam.com/api/recipes/v2?app_id=4a0156d2&app_key=' + 'a8f96e8c7749c98cdb001aadb4c352cd' + '&type=public&q=' + complex;
 
   var healthEl = document.querySelector("select[class='health']").value;
   var cuisineEl = document.querySelector("select[class='cuisine']").value;
 
+  //setup filter condition
   if (healthEl && cuisineEl) {
     var newApiUrl = apiUrl + '&health=' + healthEl + '&cuisineType=' + cuisineEl;
     console.log("apiboth", newApiUrl);
