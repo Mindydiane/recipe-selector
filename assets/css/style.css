@@ -2,7 +2,7 @@
     --prim-color: #84c9ee;
     --second-color: #183849;
     --third-color: #74240c;
-    --forth-color: white;
+    --forth-color: #FFF5EE;
 }
 
 *{
@@ -21,70 +21,60 @@ header h1 {
     font-size: 60px;
 }
 
-.toggle {
-    position: fixed;
-    top: 25px;
-    left: 20px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: #000;
-    cursor: pointer;
-    z-index: 1;
-}
 
-.toggle:before {
-    content: "+";
-    position: absolute;
-    font-size: 50px;
-    width: 100%;
-    height: 100%;
-    color: #fff;
-    text-align: center;
-    line-height: 50px;
-    border-radius: 50%;
-    background-color: #000;
-    font-weight: bold;
-    transition: 0.5s;
-}
-
-.menu {
-    background-color: var(--second-color);
-    display: none;
-    position: fixed;
-    margin-left: 5px;
-}
-
-.menu ul {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.menu ul li {
-    list-style: none;
-    line-height: 40px;
-}
-
-.menu ul li a{
-    height: 100%;
-    padding: 0 10px;
-    text-transform: uppercase;
-    text-decoration: none;
-    color: var(--forth-color);
-}
-
-
+/* Search Area Style */
 .search-bar {
     width: 100%;
-    padding: 40px;
+    padding: 40px 40px 10px 40px;
     white-space: pre-wrap;
-    text-align: center;
+    text-align: center; 
+    background-image: url(../images/blank-book.jpg); 
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .search-text {
+    text-align: center;
     width: 1000px;
     height: 50px;
     font-size: 40px;
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+}
+
+.background {
+    background-color: var(--second-color);
+}
+
+section {
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+/* Random recipe style section */
+.random {
+    margin: auto;
+    color: var(--prim-color);
+}
+
+.title {
+    margin: auto;
+}
+
+
+.filter-form {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 50px;
+    color: var(--prim-color);
+}
+
+.filter, .filter2 {
+    margin: 5px 40px;
 }
 
 .search-content {
@@ -114,3 +104,4 @@ header h1 {
     margin: 5px;
     
 }
+
