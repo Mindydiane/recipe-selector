@@ -102,6 +102,6 @@ section {
 
 .recipe-name {
     margin: 5px;
-    
+    color: var(--forth-color);
 }
 
