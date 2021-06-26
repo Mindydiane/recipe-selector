@@ -16,28 +16,34 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
     />
+    <link rel="stylesheet" href="./assets/css/simple-grid.css" />
+
     <link rel="stylesheet" href="./assets/css/style.css" />
-    
+
     <title>Recipe Selector</title>
   </head>
 
   <body>
-    <header>
-
+    <header class="row">
       <h1 class="title">Super Recipes</h1>
     </header>
 
     <!-- search area & background image-->
-    <div class="background">
-      <form class="search-bar">
-        <input
-          type="text"
-          class="search-text"
-          placeholder="Enter Food or Recipes"
-        />
-      </form>
-      <div class="filter-form">
-        <form class="filter">
+    <div class="background container">
+      <div class="row">
+        <form class="search-bar col-12">
+          <input
+            type="text"
+            class="search-text"
+            placeholder="Enter Food or Recipes"
+          />
+        </form>
+        <h2 class="filter-form col-6">
+          Click to select Health &amp; Cuisine options then enter food or recipe
+        </h2>
+      </div>
+      <div class="filter-form row">
+        <form class="filter col-3">
           <div class="option-label">
             <h4 class="label">Health</h4>
           </div>
@@ -68,7 +74,7 @@
           </select>
         </form>
 
-        <form class="filter2">
+        <form class="filter2 col-3">
           <div class="option-label2">
             <h4 class="label2">Cuisine</h4>
           </div>
@@ -95,23 +101,17 @@
             <option value="soy-free">Soy-free</option>
           </select>
         </form>
-        <h2 class="filter-form">
-          Click to select Health &amp; Cuisine options then enter food or recipe
-        </h2>
       </div>
-      
-       <!-- Recipe section-->
+
+      <!-- Recipe section-->
       <main class="search-content">
-       
-      <!-- Random Recipe Recipe section-->
-      <section>
-        <div class="random">
+        <div class="container">
+          <!-- Random Recipe Recipe section-->
+          <section class="row">
+            <div class="random col-12"></div>
+          </section>
         </div>
-      </section>
-        
-        
       </main>
-    
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="./assets/js/script.js"></script>
