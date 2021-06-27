@@ -15,6 +15,6 @@ Deployed: https://mindydiane.github.io/recipe-selector/
 GitHub repo: https://github.com/Mindydiane/recipe-selector
 </br></br>
 * Used Simple-Grid layout instead of bootstrap to make website responsive.
-* Used 2 different API'S Edamam and Spoonacular API
+* Used 2 different API'S Edamam(for search bar) and Spoonacular API(random recipe)
 </br></br>
 Published by: Mindy Diane Garza, Jiaming Zhou, and Derek Beckford
