@@ -38,14 +38,14 @@ var getRecipeInfo = function (data, searchTerm) {
   //iterate data to create search result section
   for (var i = 0; i < data.hits.length; i++) {
     var anchorEl = document.createElement("a");
-    anchorEl.className = "redirect";
+    anchorEl.className = "col-4";
     anchorEl.setAttribute("href", data.hits[i].recipe.shareAs);
 
     var imgEl = document.createElement("img");
-    imgEl.className = "recipe-img";
+    
     imgEl.setAttribute("src", data.hits[i].recipe.image);
     anchorEl.appendChild(imgEl);
-
+    
     var nameEl = document.createElement("h3");
     nameEl.className = "recipe-name";
     nameEl.textContent = data.hits[i].recipe.label;
@@ -68,7 +68,7 @@ fetch(apiUrlTwo).then(function (response) {
       randomLink = data.recipes[0].sourceUrl;
 
       $(".random").html(
-        `<h1 class='title'>Random Recipe!</h1><h3>${randomTitle}</h3><a href='${randomLink}' target='_blank'><img src='${randomImage}'></img>`
+        `<h1 class='title'>Random Recipe!</h1><h3>${randomTitle}</h3><a href='${randomLink}' target='_blank'><img class="center col-10" src='${randomImage}'></img>`
       );
     });
   }
