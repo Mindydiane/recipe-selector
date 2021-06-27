@@ -23,27 +23,27 @@
     <title>Recipe Selector</title>
   </head>
 
-  <body>
+  <body class="container">
     <header class="row">
       <h1 class="title">Super Recipes</h1>
     </header>
 
     <!-- search area & background image-->
-    <div class="background container">
-      <div class="row">
-        <form class="search-bar col-12">
+    <div class="background">
+      
+        <form class="search-bar row">
           <input
             type="text"
-            class="search-text"
+            class="col-12 search-text"
             placeholder="Enter Food or Recipes"
           />
         </form>
-        <h2 class="filter-form col-6">
+        <h2 class="filter-form col-6 center">
           Click to select Health &amp; Cuisine options then enter food or recipe
         </h2>
-      </div>
+      
       <div class="filter-form row">
-        <form class="filter col-3">
+        <form class="filter col-3 center">
           <div class="option-label">
             <h4 class="label">Health</h4>
           </div>
@@ -74,7 +74,7 @@
           </select>
         </form>
 
-        <form class="filter2 col-3">
+        <form class="filter2 col-3 center">
           <div class="option-label2">
             <h4 class="label2">Cuisine</h4>
           </div>
@@ -104,7 +104,7 @@
       </div>
 
       <!-- Recipe section-->
-      <main class="search-content">
+      <main class="search-content center">
         <div class="container">
           <!-- Random Recipe Recipe section-->
           <section class="row">

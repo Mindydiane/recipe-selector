@@ -21,6 +21,7 @@ body {
 /* ROOT FONT STYLES */
 
 * {
+  font-family: 'Lato', Helvetica, sans-serif;
   line-height: 1.5;
 }
 
@@ -31,9 +32,7 @@ h1 {
 }
 
 h2 {
-  font-size: 25px;
-  text-align: center;
-  color: var(--prim-color);
+  font-size: 2rem;
 }
 
 h3 {
@@ -42,7 +41,6 @@ h3 {
 
 h4 {
   font-size: 1.125rem;
-  color: var(--prim-color);
 }
 
 h5 {
@@ -94,6 +92,7 @@ p {
 /* ==== GRID SYSTEM ==== */
 
 .container {
+  width: 90%;
   margin-left: auto;
   margin-right: auto;
 }
@@ -184,7 +183,7 @@ p {
 
 @media only screen and (min-width: 33.75em) {  /* 540px */
   .container {
-    width: 110%;
+    width: 80%;
   }
 }
 
@@ -242,4 +241,9 @@ p {
   }
 }
 
-
+@media only screen and (min-width: 60em) { /* 960px */
+  .container {
+    width: 75%;
+    max-width: 60rem;
+  }
+}
