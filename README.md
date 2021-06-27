@@ -4,7 +4,7 @@ Maybe your at home and suddenly have a craving for a certain recipe. You have al
 -Inspiring new recipes to users to explore their palate. 
 -With more people staying indoors wanted to bring different options. 
 
-![alt text](http://.assets.images.super_recipes.JPG)
+![image](https://user-images.githubusercontent.com/81452611/123548916-7536f180-d72c-11eb-9cd8-b38fb3419f60.png)
 
 Deployed: https://mindydiane.github.io/recipe-selector/
 </br>
